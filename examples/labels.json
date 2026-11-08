@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "dataset_sha256": "e8e73521146f06781ae533a2f0acdb1a6454dd39b37e87ec552e7882e6fc81ca",
+  "provenance": "Manually specified synthetic examples; not expert-adjudicated real data",
+  "expected": [
+    {
+      "task_id": "chain",
+      "reachable_nodes": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "task_id": "diamond",
+      "reachable_nodes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "task_id": "cycle",
+      "reachable_nodes": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "task_id": "isolated",
+      "reachable_nodes": [
+        "A"
+      ]
+    }
+  ]
+}

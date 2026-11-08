@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "dataset_id": "synthetic-directed-reachability",
+  "version": "1.0.0",
+  "split": "development",
+  "tasks": [
+    {
+      "id": "chain",
+      "unit_id": "chain",
+      "input": {
+        "nodes": [
+          "A",
+          "B",
+          "C"
+        ],
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "C"
+          ]
+        ],
+        "start": "A"
+      }
+    },
+    {
+      "id": "diamond",
+      "unit_id": "diamond",
+      "input": {
+        "nodes": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "A",
+            "C"
+          ],
+          [
+            "B",
+            "D"
+          ],
+          [
+            "C",
+            "D"
+          ]
+        ],
+        "start": "A"
+      }
+    },
+    {
+      "id": "cycle",
+      "unit_id": "cycle",
+      "input": {
+        "nodes": [
+          "A",
+          "B",
+          "C"
+        ],
+        "edges": [
+          [
+            "A",
+            "B"
+          ],
+          [
+            "B",
+            "A"
+          ]
+        ],
+        "start": "B"
+      }
+    },
+    {
+      "id": "isolated",
+      "unit_id": "isolated",
+      "input": {
+        "nodes": [
+          "A",
+          "B"
+        ],
+        "edges": [],
+        "start": "A"
+      }
+    }
+  ]
+}

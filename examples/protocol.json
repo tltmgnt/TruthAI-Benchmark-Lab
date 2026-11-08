@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "status": "template_not_preregistered",
+  "dataset_sha256": null,
+  "reference_label_provenance_and_adjudication": null,
+  "baseline_revision": null,
+  "candidate_revision": null,
+  "primary_metrics": ["missed_nodes", "spurious_nodes", "exact_match_rate", "elapsed_ns", "peak_python_bytes"],
+  "practical_improvement_thresholds": null,
+  "accuracy_noninferiority_margin": null,
+  "task_sampling_and_independent_unit_rationale": null,
+  "execution_order_and_environment_controls": null,
+  "resource_limits_and_timeout_policy": null,
+  "missing_observation_policy": "reject_missing_rows_retain_explicit_timeout_and_error_rows",
+  "external_replication_reports": [],
+  "superiority_established": false
+}

@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "truthai-benchmark-lab"
+version = "0.1.0"
+description = "Matched graph reachability benchmarks and ResearchOS evidence replay"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+[project.scripts]
+truthai-benchmark = "benchmark_lab.__main__:main"
+[tool.setuptools.packages.find]
+include = ["benchmark_lab*"]
