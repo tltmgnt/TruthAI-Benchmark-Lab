@@ -101,3 +101,5 @@ claimed. See [evaluation protocol](docs/EVALUATION.md). Actual independently lab
 datasets, sealed external submissions, statistically justified experiments and external
 replications remain future work. Existing Apache-2.0 license retained; the vendored
 ResearchOs code is Apache-2.0.
+
+**∞**
