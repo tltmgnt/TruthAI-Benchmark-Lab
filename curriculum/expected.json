@@ -1,0 +1,44 @@
+{
+  "case_count": 6,
+  "cases": [
+    {
+      "actual": 1,
+      "case": "BFS exact-match reference",
+      "expected": 1.0,
+      "passed": true
+    },
+    {
+      "actual": 1,
+      "case": "DFS exact-match reference",
+      "expected": 1.0,
+      "passed": true
+    },
+    {
+      "actual": 4,
+      "case": "four matched tasks",
+      "expected": 4,
+      "passed": true
+    },
+    {
+      "actual": 1,
+      "case": "timeout retained as failure",
+      "expected": 1,
+      "passed": true
+    },
+    {
+      "actual": null,
+      "case": "timeout is not an apparent speed win",
+      "expected": null,
+      "passed": true
+    },
+    {
+      "actual": true,
+      "case": "mismatched environment suppresses timing comparison",
+      "expected": true,
+      "passed": true
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Synthetic curriculum checks only",
+  "status": "PASS"
+}

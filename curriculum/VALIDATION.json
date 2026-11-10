@@ -1,0 +1,30 @@
+{
+  "case_count": 6,
+  "command": "python curriculum/lab.py --verify",
+  "exit_code": 0,
+  "expected_sha256": "f707a6c84f94c1773f89e32eec4b23c63cf3bb93138dcb5ea6a12d1892b67b67",
+  "lab_sha256": "36a7c81885c8445e9cba86bd1ddf9c971e60388ec5af765e1b6395753499a82c",
+  "python": "3.12.14",
+  "repository": "tltmgnt/TruthAI-Benchmark-Lab",
+  "schema_version": 1,
+  "scope": "Local synthetic curriculum validation on the recorded source snapshot; not complete repository CI, learning outcomes, independent scientific reproduction or deployment approval",
+  "source_and_fixture_sha256": {
+    "benchmark_lab/__init__.py": "e6155cc7a658e31da356f81e2321e5beb0351053d9a20821c54cbf930c548705",
+    "benchmark_lab/__main__.py": "f1ea4924f1f9a77b03c3612ddc3c54f9b18fb0e9422e029ec693d94138c3e4b1",
+    "benchmark_lab/_tect/__init__.py": "532852937b0d9ae7a09360426373a909171eedcceda6c7b814397a4545132dc3",
+    "benchmark_lab/_tect/__main__.py": "01b079617de0074b77c6746068d51b4921ce6fbb157778d9a10135b966ddb2fb",
+    "benchmark_lab/_tect/core.py": "f00f5c34be6d0e2cc107754b46da2f94fd2a2b43a7cf08a86cae4c114dec520e",
+    "benchmark_lab/_tect/experiments.py": "78716550613dcc902190a2c10a9c56070bd6e6f4a2b4f1db9617295a9c90e519",
+    "benchmark_lab/_tect/io.py": "4ee33f9733fc3225072fe9602e95e14a98d2968bf7903fcc660c1fc914a34383",
+    "benchmark_lab/_tect/pilot.py": "d029c7aee3d6e5adf302ed7caa15ec4934ca79c0a8be86b55124e6939d2663c5",
+    "benchmark_lab/bundle.py": "79f6dfbb4f1bff1c6b7964345ed20000763ab93e008166afba0b1b1b53cedc67",
+    "benchmark_lab/evaluation.py": "0b7d6b14f6ef7ed071f1cdc064b794b796a4f12f3b2ae6cdbad0e7afa2b20a75",
+    "benchmark_lab/researchos.py": "ae9ee2411f94fa9325eb355f94d2c44c4f05829cec58c373ef14e03930ed4a06",
+    "benchmark_lab/runner.py": "bedb14fd151e75b487d269c645a25a1c1fbbcf3de9b144cc96d6d73ba7d4f0da",
+    "examples/labels.json": "5bdf9dd7508e1c6653859008aa3deab77970f133dae25b6af2a8430d7d2c9486",
+    "examples/protocol.json": "2cbc4cb474232fc20dbd82e449619eb6db32a1f76ef6a7cf6c096f1b04cd7a5b",
+    "examples/tasks.json": "97346d40eb4329733e9e3ca6b30e2d550e046e3bdaae8ec721402454c990113e"
+  },
+  "source_base_commit": "bb0ad675203c904bf0a8ee5e5b5295b6a1326a86",
+  "wrong_expectation_exit_code": 1
+}
