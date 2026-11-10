@@ -1,6 +1,6 @@
 # Topology compatibility and curriculum v2 — TruthAI-Benchmark-Lab
 
-Version 2 adapts the explicit-molecular-graph teaching pattern to this repository's actual role. This is documentation and a learning/decision framework; it introduces no mathematical engine, runtime dependency or operational permission.
+The verified edition of version 2 adapts the explicit-molecular-graph teaching pattern to this repository's actual role. This edition adds executable learning checks and reviewed answer keys. It does not introduce a new topology engine or grant operational permission.
 
 ## Repository decision
 
@@ -40,45 +40,54 @@ Prerequisites: basic programming, sets, functions and graph vocabulary. Work in 
 | 5. Comparison | Justify mathematical necessity and cost. | Complete the six-criterion card for the existing approach and one proposed alternative; record unknowns honestly. | Evidence-backed recommendation with baseline and explicit veto conditions. |
 | 6. Reproduction | Communicate the bounded result. | Reproduce the capstone using existing offline fixtures and record software version, inputs, outputs and limitations. | Reviewable notebook or report distinguishing computation, replay, independent evaluation and authorization. |
 
-## Source-linked reading laboratory
+## Worked reasoning and source explanation
 
-The table is a guided selection of source lines, not an assertion that the whole repository is covered. Line numbers refer to the inspected source blob `47d916d5e2e95ca82c68c7cef9030779f95c1815` in [benchmark_lab/evaluation.py](../../benchmark_lab/evaluation.py). Recheck anchors after source changes.
+The BFS and DFS runners receive tasks separately from the labels and both achieve exact-match rate 1 on four supplied graphs. A timeout is retained as a failed task and has no speed-saving value, even if its recorded elapsed time is zero. Changing the declared environment suppresses paired timing deltas. The lab checks correctness and comparison rules; its sampled timings do not establish a reliable performance advantage.
 
-| Line | Statement | Learning check |
+Read the [inspected source](https://github.com/tltmgnt/TruthAI-Benchmark-Lab/blob/bb0ad675203c904bf0a8ee5e5b5295b6a1326a86/benchmark_lab/evaluation.py) alongside the [executable answer key](../../curriculum/lab.py). The source link is pinned to the inspected revision; the lab and any explicitly described fix are in this change.
+
+## Run the worked laboratory
+
+From the repository root, with Python 3.12 (the recorded local version is 3.12.14):
+
+```sh
+python curriculum/lab.py --verify
+```
+
+The lab checks **6 explicit expectations** against existing repository functions. It prints a JSON case report and exits nonzero on a wrong result. `--verify` additionally compares the entire case report with [expected.json](../../curriculum/expected.json). Read the input and predict each result before opening the answer key. No API account, credentials, model download, trading action or equipment connection is needed.
+
+| Checkpoint | Expected answer |
+| --- | --- |
+| BFS exact-match reference | `1.0` |
+| DFS exact-match reference | `1.0` |
+| four matched tasks | `4` |
+| timeout retained as failure | `1` |
+| timeout is not an apparent speed win | `null` |
+| mismatched environment suppresses timing comparison | `true` |
+
+The comparisons above encode independently specified small examples and contract expectations; a passing answer key is not evidence of complete domain correctness. The original functions and their existing test suites remain the authority for broader supported contracts.
+
+## Learner tasks and assessment rubric
+
+1. Before running the lab, predict every expected answer and derive one numeric result or state transition by hand.
+2. Explain the worked reasoning above using the referenced source, including the rejected or counterexample case.
+3. Add a new valid example and a nearby failing example. Explain which assumption changes, then compare against the existing implementation. For concept/static labs, keep the result explicitly at that level.
+4. Complete the scorecard for a proposed extension and a simpler baseline. Leave measurements unknown until collected; a task that the baseline already solves is not evidence for additional topology.
+
+| Competency | Points | Full-credit evidence |
 | --- | --- | --- |
-| [6](../../benchmark_lab/evaluation.py#L6) | `def unique_ids(items, maximum, allow_empty=False):` | State the input/output contract and trace one normal and one failing case. |
-| [8](../../benchmark_lab/evaluation.py#L8) | `raise ValueError('Bounded identifier list required')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [10](../../benchmark_lab/evaluation.py#L10) | `if len(set(items)) != len(items): raise ValueError('Duplicate identifier')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [13](../../benchmark_lab/evaluation.py#L13) | `def validate_dataset(dataset):` | State the input/output contract and trace one normal and one failing case. |
-| [14](../../benchmark_lab/evaluation.py#L14) | `fields(dataset, ('schema_version','dataset_id','version','split','tasks'))` | Separate type, shape and value checks; test a missing field and an invalid value. |
-| [15](../../benchmark_lab/evaluation.py#L15) | `if type(dataset['schema_version']) is not int or dataset['schema_version'] != 1:` | Separate type, shape and value checks; test a missing field and an invalid value. |
-| [16](../../benchmark_lab/evaluation.py#L16) | `raise ValueError('Unsupported dataset schema')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [19](../../benchmark_lab/evaluation.py#L19) | `raise ValueError('Unknown dataset split')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [22](../../benchmark_lab/evaluation.py#L22) | `raise ValueError('Between 1 and 100 tasks required')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [27](../../benchmark_lab/evaluation.py#L27) | `if tid in seen: raise ValueError('Duplicate task')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [32](../../benchmark_lab/evaluation.py#L32) | `if graph['start'] not in graph['nodes']: raise ValueError('Unknown start node')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [34](../../benchmark_lab/evaluation.py#L34) | `raise ValueError('Bounded edges required')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [38](../../benchmark_lab/evaluation.py#L38) | `raise ValueError('Edges must reference declared nodes')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [39](../../benchmark_lab/evaluation.py#L39) | `if tuple(edge) in edges: raise ValueError('Duplicate edge')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [41](../../benchmark_lab/evaluation.py#L41) | `return {task['id']: task for task in tasks}` | Predict the returned value and distinguish a computed result from authorization. |
-| [44](../../benchmark_lab/evaluation.py#L44) | `def validate_labels(dataset, labels):` | State the input/output contract and trace one normal and one failing case. |
-| [46](../../benchmark_lab/evaluation.py#L46) | `fields(labels, ('schema_version','dataset_sha256','provenance','expected'))` | Separate type, shape and value checks; test a missing field and an invalid value. |
-| [47](../../benchmark_lab/evaluation.py#L47) | `if type(labels['schema_version']) is not int or labels['schema_version'] != 1 or labels['dataset_sha256'] != digest(dataset):` | Separate type, shape and value checks; test a missing field and an invalid value. |
-| [48](../../benchmark_lab/evaluation.py#L48) | `raise ValueError('Labels do not bind this dataset')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [51](../../benchmark_lab/evaluation.py#L51) | `raise ValueError('Complete reference task coverage required')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [56](../../benchmark_lab/evaluation.py#L56) | `if tid not in tasks or tid in result: raise ValueError('Unknown or duplicate reference task')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [59](../../benchmark_lab/evaluation.py#L59) | `raise ValueError('Reference uses undeclared nodes')` | Construct the triggering input and explain why rejection preserves the contract. |
-| [61](../../benchmark_lab/evaluation.py#L61) | `return result` | Predict the returned value and distinguish a computed result from authorization. |
-| [64](../../benchmark_lab/evaluation.py#L64) | `def validate_submission(dataset, submission):` | State the input/output contract and trace one normal and one failing case. |
-## Assessment and verification
+| Model and contract | 0–3 | Correct objects, relation direction, labels/units, input bounds and missingness. |
+| Derivation and trace | 0–3 | Hand derivation agrees with the specified fixture; source steps explain why. |
+| Counterexample | 0–3 | New failing/boundary case has a justified expected result; rejection is not suppressed. |
+| Scope and necessity | 0–3 | Distinguishes software behavior from validation and compares an explicit simpler alternative. |
 
-A learner must explain the model, trace the capstone, identify a counterexample and state the scope boundary. Assess these four competencies equally; a numerical score cannot compensate for an unsupported scientific or operational claim.
+Completion requires at least 10/12 and no zero in scope/necessity. A runnable answer key alone is not evidence that a learner achieved this competency. No learner-outcome study has been performed.
 
-Relevant existing checks:
+## Verification evidence and maintenance
 
-- [tests/test_lab.py](../../tests/test_lab.py)
+[VALIDATION.json](../../curriculum/VALIDATION.json) records the inspected base revision, local Python version, source/fixture hashes, lab/answer hashes, case count and exit codes. All cases were executed locally. An in-memory copy with a deliberately wrong comparison was also executed and returned nonzero, checking that the grading failure path is active. Those injected failures are harness checks, not scientific adversarial evaluations.
 
-Follow [README](../../README.md) for environment and installed-package instructions. Read scripts before execution; source-reading exercises do not authorize provider calls, model downloads, live orders, hardware actions or messages. Synthetic fixtures establish software behavior only. This documentation change does not report those exercises as already executed.
+The dedicated [curriculum workflow](../../.github/workflows/curriculum.yml) runs the same `--verify` command on relevant pull-request changes. CI status is reported by GitHub; the local record does not assert that remote CI passed. Existing full-suite and installed-package requirements still apply to runtime changes. When source or fixture semantics change, inspect the diff and rederive answers before updating expected.json. Never regenerate expected answers solely to silence a failure. Refresh the local validation record after an actual run; do not rewrite its recorded base revision as if a new run occurred.
 
 ## Interoperability and adoption gate
 
