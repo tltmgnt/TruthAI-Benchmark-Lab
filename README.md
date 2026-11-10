@@ -103,3 +103,7 @@ replications remain future work. Existing Apache-2.0 license retained; the vendo
 ResearchOs code is Apache-2.0.
 
 **∞**
+
+## Topology compatibility and curriculum
+
+See the [repository-specific v2 curriculum](docs/portfolio/TOPOLOGY_CURRICULUM_V2.md) for the minimum useful mathematics, six-criterion compatibility scorecard, source-linked exercises and adoption boundaries.
